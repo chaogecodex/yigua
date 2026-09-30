@@ -190,7 +190,7 @@ function finish(){
       <div class="c-text">${clean(main)}</div>
       <div class="c-bh">${MB[0]}</div>
       <div class="c-tip">${MB[1]}</div>
-      <div class="c-foot"><div><div>一卦 · ${ds}</div><div>Made with <b>Claude</b> · 仅供娱乐</div></div><div class="c-qr"><span>扫码来一卦</span><img alt="二维码" src="${qrCanvas(240).toDataURL()}"></div></div>
+      <div class="c-foot"><div><div>一卦 · ${ds}</div><div><b>claude道长</b> · 仅供娱乐</div></div><div class="c-qr"><span>扫码来一卦</span><img alt="二维码" src="${qrCanvas(240).toDataURL()}"></div></div>
     </div>
   </div>
   <div class="row"><button id="save">保存卡片图片</button><button id="ask" class="ghost" hidden>结合我的问题再解读</button></div>
@@ -242,8 +242,8 @@ async function renderPNG(){
   x.font=`500 30px ${S}`;x.fillStyle='#141413';x.textAlign='right';x.fillText('扫码来一卦',W-P-qc.width+2,Hh-120);
   x.font=`400 24px ${S}`;x.fillStyle='#5E5D59';x.fillText('免费 · 不用注册',W-P-qc.width+2,Hh-82);x.textAlign='left';
   x.font=`400 26px ${S}`;x.fillStyle='#5E5D59';x.fillText('一卦 · '+cur.ds,P,Hh-120);
-  x.fillText('Made with ',P,Hh-82);const w1=x.measureText('Made with ').width;x.fillStyle='#141413';x.font=`700 26px ${S}`;x.fillText('Claude',P+w1,Hh-82);
-  const w2=x.measureText('Claude').width;x.fillStyle='#5E5D59';x.font=`400 26px ${S}`;x.fillText(' · 仅供娱乐',P+w1+w2,Hh-82);
+  x.fillStyle='#141413';x.font=`700 26px ${S}`;x.fillText('claude道长',P,Hh-82);const w1=x.measureText('claude道长').width;
+  x.fillStyle='#5E5D59';x.font=`400 26px ${S}`;x.fillText(' · 仅供娱乐',P+w1,Hh-82);
   return new Promise(res=>c.toBlob(b=>res({blob:b,url:c.toDataURL('image/png')}),'image/png'));
 }
 let dl;const dlReady=(window.claude&&claude.use)?claude.use('downloads').catch(()=>null):Promise.resolve(null);
